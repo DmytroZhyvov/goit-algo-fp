@@ -32,7 +32,7 @@ def add_edges(graph, node, pos, x=0, y=0, layer=1):
     return graph
 
 
-def draw_tree(tree_root):
+def draw_tree(tree_root, title=None):
     tree = nx.DiGraph()
     pos = {tree_root.id: (0, 0)}
     add_edges(tree, tree_root, pos)
@@ -44,6 +44,10 @@ def draw_tree(tree_root):
     nx.draw(
         tree, pos=pos, labels=labels, arrows=False, node_size=2500, node_color=colors
     )
+
+    if title:
+        plt.title(title)
+
     plt.show()
 
 
